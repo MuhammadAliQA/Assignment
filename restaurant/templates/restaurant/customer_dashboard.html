@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="hero p-4 p-md-5 mb-4">
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <h2 class="page-title text-white">{% translate "Your BitePlate Space" %}</h2>
+      <p class="mb-0" style="color: rgba(236,253,245,.9)">{% translate "Browse the menu, manage reservations, and place your own table orders." %}</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+      <a class="btn btn-light" href="{% url 'restaurant:order_create' %}">{% translate "Start Order" %}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Active Orders" %}</p><div class="stat-value">{{ active_orders }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Reservations" %}</p><div class="stat-value">{{ reservation_count }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Completed Orders" %}</p><div class="stat-value">{{ completed_orders }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Available Dishes" %}</p><div class="stat-value">{{ menu_count }}</div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="site-card p-4 h-100">
+      <p class="section-title">{% translate "Quick Actions" %}</p>
+      <p class="muted">{% translate "Everything a customer needs without entering staff pages." %}</p>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a class="btn btn-dark" href="{% url 'restaurant:menu_list' %}">{% translate "Browse Menu" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:reservation_create' %}">{% translate "Book Table" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:order_create' %}">{% translate "Place Order" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:order_list' %}">{% translate "Track Orders" %}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="site-card p-4 h-100">
+      <p class="section-title">{% translate "Latest Activity" %}</p>
+      {% if active_order %}
+      <p class="mb-1 fw-bold">{% translate "Current Order" %}: #{{ active_order.id }}</p>
+      <p class="muted mb-3">{% translate "Status" %}: {{ active_order.get_status_display }}</p>
+      {% endif %}
+      {% if latest_reservation %}
+      <p class="mb-1 fw-bold">{% translate "Latest Reservation" %}</p>
+      <p class="muted mb-3">{{ latest_reservation.reservation_time|date:'Y-m-d H:i' }}{% if latest_reservation.table %} | {{ latest_reservation.table }}{% endif %}</p>
+      {% endif %}
+      {% if latest_order %}
+      <p class="mb-1 fw-bold">{% translate "Latest Order Total" %}</p>
+      <p class="muted mb-0">{{ latest_order.total_amount }}</p>
+      {% else %}
+      <p class="muted mb-0">{% translate "No customer activity yet. Start with the menu or create a reservation." %}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

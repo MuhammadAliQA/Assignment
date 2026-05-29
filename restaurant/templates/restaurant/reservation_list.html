@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load i18n restaurant_tags %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div>
+    <h2 class="page-title">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "My Reservations" %}
+      {% else %}
+      {% translate "Reservations" %}
+      {% endif %}
+    </h2>
+    <p class="muted mb-0">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "Review and manage your booked tables." %}
+      {% else %}
+      {% translate "Track bookings and table assignments." %}
+      {% endif %}
+    </p>
+  </div>
+  <a href="{% url 'restaurant:reservation_create' %}" class="btn btn-dark">{% translate "New Reservation" %}</a>
+</div>
+<div class="site-card p-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>{% translate "Customer" %}</th>
+          <th>{% translate "Phone" %}</th>
+          <th>{% translate "Time" %}</th>
+          <th>{% translate "Guests" %}</th>
+          <th>{% translate "Table" %}</th>
+          <th>{% translate "Status" %}</th>
+          {% if not user|has_group:"Customer" or user.is_superuser %}
+          <th>{% translate "User" %}</th>
+          {% endif %}
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in reservations %}
+        <tr>
+          <td>{{ r.customer_name }}</td>
+          <td>{{ r.customer_phone }}</td>
+          <td>{{ r.reservation_time|date:'Y-m-d H:i' }}</td>
+          <td>{{ r.number_of_guests }}</td>
+          <td>{{ r.table|default:'-' }}</td>
+          <td>{{ r.get_status_display }}</td>
+          {% if not user|has_group:"Customer" or user.is_superuser %}
+          <td>{{ r.customer.username|default:'-' }}</td>
+          {% endif %}
+          <td>
+            <a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:reservation_edit' r.id %}">{% translate "Edit" %}</a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:reservation_delete' r.id %}">{% translate "Delete" %}</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="{% if not user|has_group:'Customer' or user.is_superuser %}8{% else %}7{% endif %}" class="text-center py-4 muted">{% translate "No reservations yet." %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

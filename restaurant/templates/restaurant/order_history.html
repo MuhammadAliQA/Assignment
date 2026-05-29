@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h2 class="page-title mb-4">{% translate "Order History Log" %}</h2>
+<div class="site-card p-3">
+  {% for row in history_rows %}
+    <div class="border-bottom py-2"><code>{{ row }}</code></div>
+  {% empty %}
+    <p class="muted mb-0">{% translate "No completed orders in history." %}</p>
+  {% endfor %}
+</div>
+{% endblock %}

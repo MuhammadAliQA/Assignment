@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h2 class="page-title mb-4">{% translate "Billing" %}</h2>
+<div class="site-card p-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>{% translate "Bill" %}</th>
+          <th>{% translate "Order" %}</th>
+          <th>{% translate "Table" %}</th>
+          <th>{% translate "Status" %}</th>
+          <th>{% translate "Total" %}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for b in bills %}
+        <tr>
+          <td>#{{ b.id }}</td>
+          <td>#{{ b.order.id }}</td>
+          <td>{{ b.order.table.table_number }}</td>
+          <td>{{ b.get_status_display }}</td>
+          <td>{{ b.total_amount }}</td>
+          <td><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:bill_detail' b.id %}">{% translate "Open" %}</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="text-center py-4 muted">{% translate "No bills generated." %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

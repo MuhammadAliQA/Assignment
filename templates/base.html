@@ -1,0 +1,277 @@
+{% load i18n restaurant_tags %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BitePlate SRMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f4ee;
+      --panel: #ffffff;
+      --panel-2: #f9faf7;
+      --ink: #16221d;
+      --muted: #607065;
+      --brand: #0f766e;
+      --brand-dark: #0b3b36;
+      --accent: #c2410c;
+      --line: #e6ebe4;
+      --radius: 18px;
+      --shadow-soft: 0 8px 30px rgba(15, 23, 42, .07);
+      --shadow-nav: 0 10px 28px rgba(11, 59, 54, .25);
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at -8% -12%, rgba(20, 184, 166, .16), transparent 62%),
+        radial-gradient(1000px 500px at 108% -16%, rgba(194, 65, 12, .08), transparent 58%),
+        linear-gradient(180deg, #f6f7f3, var(--bg));
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Fraunces', serif;
+      letter-spacing: .2px;
+    }
+
+    .site-nav {
+      background: linear-gradient(100deg, #082b27 0%, #0f5f58 52%, #0f766e 100%);
+      box-shadow: var(--shadow-nav);
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      font-size: 1.15rem;
+      letter-spacing: .4px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgba(236, 253, 245, .86);
+      font-weight: 600;
+      border-radius: 999px;
+      padding: .42rem .78rem;
+      transition: .2s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .site-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      background: var(--panel);
+      overflow: hidden;
+      animation: rise .35s ease both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-title {
+      font-size: clamp(1.7rem, 2vw, 2.45rem);
+      margin-bottom: 0;
+    }
+
+    .muted { color: var(--muted); }
+
+    .pill {
+      border-radius: 999px;
+      padding: .28rem .72rem;
+      font-weight: 800;
+      font-size: .72rem;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .pill-ready { background: #dcfce7; color: #166534; }
+    .pill-wip { background: #fef3c7; color: #92400e; }
+    .pill-cancel { background: #fee2e2; color: #991b1b; }
+
+    .stat-card {
+      position: relative;
+      isolation: isolate;
+      background: linear-gradient(175deg, var(--panel), var(--panel-2));
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      top: -42px;
+      right: -42px;
+      background: radial-gradient(circle, rgba(20, 184, 166, .25), transparent 60%);
+      z-index: -1;
+    }
+
+    .stat-value { font-weight: 800; font-size: 1.7rem; }
+
+    .table-modern {
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      margin-top: -10px;
+    }
+
+    .table-modern thead th {
+      color: #3b4a41;
+      border: 0;
+      font-weight: 800;
+      font-size: .82rem;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .table-modern tbody tr {
+      background: #fff;
+      box-shadow: 0 2px 0 #edf2ec;
+    }
+
+    .table-modern tbody td {
+      border: 0;
+      padding-top: .9rem;
+      padding-bottom: .9rem;
+      vertical-align: middle;
+    }
+
+    .table-modern tbody tr td:first-child {
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+    }
+
+    .table-modern tbody tr td:last-child {
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, rgba(8, 43, 39, .96), rgba(15, 118, 110, .88));
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: #ecfdf5;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-nav);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -130px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.20), transparent 62%);
+    }
+
+    .btn-dark {
+      background: var(--brand-dark);
+      border-color: var(--brand-dark);
+    }
+
+    .btn-dark:hover { background: #061b18; border-color: #061b18; }
+
+    .section-title {
+      font-weight: 800;
+      letter-spacing: .2px;
+      margin-bottom: .4rem;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark site-nav mb-4">
+  <div class="container py-1">
+    <a class="navbar-brand fw-bold" href="{% url 'restaurant:dashboard' %}">BitePlate SRMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="mainNav" class="collapse navbar-collapse">
+      {% if user.is_authenticated %}
+      <div class="navbar-nav ms-auto align-items-lg-center">
+        <a class="nav-link" href="{% url 'restaurant:dashboard' %}">{% translate "Dashboard" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:menu_list' %}">{% translate "Menu" %}</a>
+        {% if user|has_group:"Customer" %}
+        <a class="nav-link" href="{% url 'restaurant:reservation_list' %}">{% translate "My Reservations" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:order_list' %}">{% translate "My Orders" %}</a>
+        {% endif %}
+        {% if user.is_superuser or user|has_group:"Manager" or user|has_group:"Waiter" %}
+        <a class="nav-link" href="{% url 'restaurant:reservation_list' %}">{% translate "Reservations" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:table_list' %}">{% translate "Tables" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:order_list' %}">{% translate "Orders" %}</a>
+        {% endif %}
+        {% if user.is_superuser or user|has_group:"Manager" or user|has_group:"Chef" %}
+        <a class="nav-link" href="{% url 'restaurant:kitchen_queue' %}">{% translate "Kitchen" %}</a>
+        {% endif %}
+        {% if user.is_superuser or user|has_group:"Manager" or user|has_group:"Cashier" %}
+        <a class="nav-link" href="{% url 'restaurant:bill_list' %}">{% translate "Billing" %}</a>
+        {% endif %}
+        {% if user.is_superuser or user|has_group:"Manager" %}
+        <a class="nav-link" href="{% url 'restaurant:order_history' %}">{% translate "History" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:manager_report' %}">{% translate "Reports" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:manage_staff' %}">{% translate "Staff" %}</a>
+        {% endif %}
+        <form method="post" action="{% url 'restaurant:logout' %}" class="d-flex align-items-center ms-2">
+          {% csrf_token %}
+          <button class="btn btn-sm btn-outline-light" type="submit">{% translate "Logout" %}</button>
+        </form>
+        <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center ms-2">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.get_full_path }}">
+          <select name="language" class="form-select form-select-sm">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% for code, name in LANGUAGES %}
+              <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+          </select>
+          <button class="btn btn-sm btn-outline-light ms-1" type="submit">OK</button>
+        </form>
+      </div>
+      {% else %}
+      <div class="navbar-nav ms-auto align-items-lg-center">
+        <a class="nav-link" href="{% url 'restaurant:login' %}">{% translate "Login" %}</a>
+        <a class="nav-link" href="{% url 'restaurant:register' %}">{% translate "Register" %}</a>
+        <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center ms-2">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.get_full_path }}">
+          <select name="language" class="form-select form-select-sm">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% for code, name in LANGUAGES %}
+              <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+          </select>
+          <button class="btn btn-sm btn-outline-light ms-1" type="submit">OK</button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+<div class="container pb-5">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-info border-0 shadow-sm">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+  {% block content %}{% endblock %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

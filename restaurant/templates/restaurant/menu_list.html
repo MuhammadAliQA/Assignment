@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load i18n restaurant_tags %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div>
+    <h2 class="page-title">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "Our Menu" %}
+      {% else %}
+      {% translate "Menu Management" %}
+      {% endif %}
+    </h2>
+    <p class="muted mb-0">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "Browse dishes and jump straight into a table order." %}
+      {% else %}
+      {% translate "Track active and inactive dishes and prices." %}
+      {% endif %}
+    </p>
+  </div>
+  {% if user|has_group:"Customer" and not user.is_superuser %}
+  <a class="btn btn-dark" href="{% url 'restaurant:order_create' %}">{% translate "Place Order" %}</a>
+  {% endif %}
+  {% if user.is_superuser or user|has_group:"Manager" %}
+  <a class="btn btn-dark" href="{% url 'restaurant:menu_create' %}">{% translate "Add Menu Item" %}</a>
+  {% endif %}
+</div>
+<div class="site-card p-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>{% translate "Name" %}</th>
+          <th>{% translate "Category" %}</th>
+          <th>{% translate "Price" %}</th>
+          <th>{% translate "Active" %}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in menu_items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.get_category_display }}</td>
+          <td>{{ item.price }}</td>
+          <td>{% if item.is_active %}{% translate "Yes" %}{% else %}{% translate "No" %}{% endif %}</td>
+          <td>
+            {% if user.is_superuser or user|has_group:"Manager" %}
+            <a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:menu_edit' item.id %}">{% translate "Edit" %}</a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:menu_delete' item.id %}">{% translate "Delete" %}</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5" class="text-center py-4 muted">{% translate "No menu items yet." %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="site-card p-4">
+      <h2 class="page-title mb-2">{% translate "Create Account" %}</h2>
+      <p class="muted">{% translate "Register as a customer to place reservations and use BitePlate services." %}</p>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark" type="submit">{% translate "Register" %}</button>
+      </form>
+      <p class="mt-3 mb-0">{% translate "Already registered?" %} <a href="{% url 'restaurant:login' %}">{% translate "Login" %}</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

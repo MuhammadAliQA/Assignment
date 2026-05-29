@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n restaurant_tags %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div>
+    <h2 class="page-title">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "My Orders" %}
+      {% else %}
+      {% translate "Orders" %}
+      {% endif %}
+    </h2>
+    <p class="muted mb-0">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "Track your current and completed orders." %}
+      {% else %}
+      {% translate "Track every active table and order lifecycle in one list." %}
+      {% endif %}
+    </p>
+  </div>
+  <a href="{% url 'restaurant:order_create' %}" class="btn btn-dark">{% translate "New Order" %}</a>
+</div>
+<div class="site-card p-3 p-md-4">
+  <div class="table-responsive">
+    <table class="table table-modern align-middle mb-0">
+      <thead>
+        <tr>
+          <th>{% translate "ID" %}</th>
+          <th>{% translate "Table" %}</th>
+          <th>{% translate "Status" %}</th>
+          <th>{% translate "Total" %}</th>
+          {% if not user|has_group:"Customer" or user.is_superuser %}
+          <th>{% translate "Customer" %}</th>
+          {% endif %}
+          <th class="text-end">{% translate "Action" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for o in orders %}
+      <tr>
+        <td class="fw-bold">#{{ o.id }}</td>
+        <td>{{ o.table }}</td>
+        <td>
+          <span class="pill {% if o.status == 'ready' or o.status == 'completed' %}pill-ready{% elif o.status == 'cancelled' %}pill-cancel{% else %}pill-wip{% endif %}">{{ o.get_status_display }}</span>
+        </td>
+        <td class="fw-bold">{{ o.total_amount }}</td>
+        {% if not user|has_group:"Customer" or user.is_superuser %}
+        <td>{{ o.customer.username|default:"-" }}</td>
+        {% endif %}
+        <td class="text-end"><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:order_detail' o.id %}">{% translate "Open" %}</a></td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="{% if not user|has_group:'Customer' or user.is_superuser %}6{% else %}5{% endif %}" class="text-center py-4 muted">{% translate "No orders yet." %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

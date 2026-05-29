@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BitePlate SRMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 15:00+0000\n"
+"PO-Revision-Date: 2026-05-29 15:00+0000\n"
+"Last-Translator: Antigravity\n"
+"Language-Team: Uzbek\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Menu"
+msgstr "Menyu"
+
+msgid "Reservations"
+msgstr "Band qilishlar"
+
+msgid "Tables"
+msgstr "Stollar"
+
+msgid "Orders"
+msgstr "Buyurtmalar"
+
+msgid "Kitchen"
+msgstr "Oshxona"
+
+msgid "Billing"
+msgstr "Hisob-kitob"
+
+msgid "History"
+msgstr "Tarix"
+
+msgid "Reports"
+msgstr "Hisobotlar"
+
+msgid "Staff"
+msgstr "Xodimlar"
+
+msgid "Logout"
+msgstr "Chiqish"
+
+msgid "Login"
+msgstr "Kirish"
+
+msgid "Register"
+msgstr "Ro'yxatdan o'tish"
+
+msgid "Welcome Back"
+msgstr "Xush kelibsiz"
+
+msgid "Sign in to continue managing orders, kitchen queue, and reports."
+msgstr "Buyurtmalar, oshxona navbati va hisobotlarni boshqarishni davom ettirish uchun tizimga kiring."
+
+msgid "No account?"
+msgstr "Akkauntingiz yo'qmi?"
+
+msgid "Create one"
+msgstr "Bitta yarating"
+
+msgid "Guest Access"
+msgstr "Mehmon kirishi"
+
+msgid "Registered customers can browse menu, make reservations, and track service flow."
+msgstr "Ro'yxatdan o'tgan mijozlar menyuni ko'rishlari, stol band qilishlari va xizmat ko'rsatish oqimini kuzatishlari mumkin."
+
+msgid "Create Account"
+msgstr "Hisob yaratish"
+
+msgid "Register as a customer to place reservations and use BitePlate services."
+msgstr "Stollarni band qilish va BitePlate xizmatlaridan foydalanish uchun mijoz sifatida ro'yxatdan o'ting."
+
+msgid "Already registered?"
+msgstr "Ro'yxatdan o'tganmisiz?"
+
+msgid "Restaurant Command Center"
+msgstr "Restoranni boshqarish markazi"
+
+msgid "Monitor operations, drive kitchen speed, and keep service quality high."
+msgstr "Operatsiyalarni kuzatib boring, oshxona tezligini oshiring va xizmat ko'rsatish sifatini yuqori darajada saqlang."
+
+msgid "Open Analytics"
+msgstr "Analitikani ochish"
+
+msgid "Active Orders"
+msgstr "Faol buyurtmalar"
+
+msgid "Available Tables"
+msgstr "Bo'sh stollar"
+
+msgid "Unpaid Bills"
+msgstr "To'lanmagan hisoblar"
+
+msgid "Menu Items"
+msgstr "Menyu elementlari"
+
+msgid "Quick Actions"
+msgstr "Tezkor harakatlar"
+
+msgid "Use these shortcuts during peak hours."
+msgstr "Tig'iz vaqtlarda ushbu yorliqlardan foydalaning."
+
+msgid "Create Order"
+msgstr "Buyurtma yaratish"
+
+msgid "New Reservation"
+msgstr "Yangi band qilish"
+
+msgid "Kitchen Queue"
+msgstr "Oshxona navbati"
+
+msgid "Menu Mix"
+msgstr "Menyu taqsimoti"
+
+msgid "Current item distribution by category."
+msgstr "Kategoriyalar bo'yicha joriy taomlar taqsimoti."
+
+msgid "No menu data"
+msgstr "Menyu ma'lumotlari yo'q"
+
+msgid "Menu Management"
+msgstr "Menyuni boshqarish"
+
+msgid "Track active and inactive dishes and prices."
+msgstr "Faol va nofaol taomlar hamda narxlarni kuzatib boring."
+
+msgid "Add Menu Item"
+msgstr "Menyu elementi qo'shish"
+
+msgid "Name"
+msgstr "Nomi"
+
+msgid "Category"
+msgstr "Kategoriya"
+
+msgid "Price"
+msgstr "Narxi"
+
+msgid "Active"
+msgstr "Faol"
+
+msgid "Yes"
+msgstr "Ha"
+
+msgid "No"
+msgstr "Yo'q"
+
+msgid "Edit"
+msgstr "Tahrirlash"
+
+msgid "Delete"
+msgstr "O'chirish"
+
+msgid "No menu items yet."
+msgstr "Hozircha menyu elementlari yo'q."
+
+msgid "Track bookings and table assignments."
+msgstr "Band qilishlar va stollarni taqsimlashni kuzatib boring."
+
+msgid "Customer"
+msgstr "Mijoz"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Time"
+msgstr "Vaqt"
+
+msgid "Guests"
+msgstr "Mehmonlar"
+
+msgid "Table"
+msgstr "Stol"
+
+msgid "Status"
+msgstr "Holat"
+
+msgid "No reservations yet."
+msgstr "Hozircha band qilishlar yo'q."
+
+msgid "Real-time table floor status."
+msgstr "Stollarning real vaqtdagi holati."
+
+msgid "Add Table"
+msgstr "Stol qo'shish"
+
+msgid "Seats"
+msgstr "O'rindiqlar"
+
+msgid "No tables yet."
+msgstr "Hozircha stollar yo'q."
+
+msgid "Track every active table and order lifecycle in one list."
+msgstr "Har bir faol stol va buyurtma hayotiy siklini bitta ro'yxatda kuzatib boring."
+
+msgid "New Order"
+msgstr "Yangi buyurtma"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Total"
+msgstr "Jami"
+
+msgid "Action"
+msgstr "Harakat"
+
+msgid "Open"
+msgstr "Ochish"
+
+msgid "No orders yet."
+msgstr "Hozircha buyurtmalar yo'q."
+
+msgid "Undo Last Action"
+msgstr "Oxirgi harakatni bekor qilish"
+
+msgid "Order"
+msgstr "Buyurtma"
+
+msgid "Save"
+msgstr "Saqlash"
+
+msgid "Kitchen queue is empty."
+msgstr "Oshxona navbati bo'sh."
+
+msgid "Bill"
+msgstr "Hisob"
+
+msgid "No bills generated."
+msgstr "Hozircha hisoblar yaratilmagan."
+
+msgid "Item"
+msgstr "Mahsulot"
+
+msgid "Qty"
+msgstr "Soni"
+
+msgid "Unit"
+msgstr "Dona"
+
+msgid "Subtotal"
+msgstr "Nimjami"
+
+msgid "No line items."
+msgstr "Tarkibiy qismlar yo'q."
+
+msgid "Billing Controls"
+msgstr "Hisob-kitob nazorati"
+
+msgid "Auto discount"
+msgstr "Avtomatik chegirma"
+
+msgid "Preview total"
+msgstr "Dastlabki jami"
+
+msgid "Update Bill"
+msgstr "Hisobni yangilash"
+
+msgid "Payment Check"
+msgstr "To'lov cheki"
+
+msgid "Generate printable check with tax and tip."
+msgstr "Soliq va choychaqa bilan chop etiladigan chek yaratish."
+
+msgid "Open Check"
+msgstr "Chekni ochish"
+
+msgid "Print"
+msgstr "Chop etish"
+
+msgid "Discount"
+msgstr "Chegirma"
+
+msgid "Tax"
+msgstr "Soliq"
+
+msgid "Tip"
+msgstr "Choychaqa"
+
+msgid "Grand Total"
+msgstr "Yakuniy jami"
+
+msgid "Tip amount"
+msgstr "Choychaqa miqdori"
+
+msgid "Recalculate"
+msgstr "Qayta hisoblash"
+
+msgid "Order History Log"
+msgstr "Buyurtmalar tarixi logi"
+
+msgid "No completed orders in history."
+msgstr "Tarixda yakunlangan buyurtmalar yo'q."
+
+msgid "Manager Reports"
+msgstr "Menejer hisobotlari"
+
+msgid "Daily finance insight with trend, staff performance, and order health."
+msgstr "Kunlik moliyaviy tahlil, tendensiyalar, xodimlar samaradorligi va buyurtmalar holati."
+
+msgid "Report Date"
+msgstr "Hisobot sanasi"
+
+msgid "Apply"
+msgstr "Kiritish"
+
+msgid "Export CSV"
+msgstr "CSV ga eksport qilish"
+
+msgid "Paid Bills"
+msgstr "To'langan hisoblar"
+
+msgid "Gross Sales"
+msgstr "Yalpi savdo"
+
+msgid "Net Sales"
+msgstr "Sof savdo"
+
+msgid "Avg Ticket"
+msgstr "O'rtacha chek"
+
+msgid "7-Day Gross Trend"
+msgstr "7 kunlik yalpi tendensiya"
+
+msgid "Date"
+msgstr "Sana"
+
+msgid "Gross"
+msgstr "Yalpi"
+
+msgid "Top Waiters"
+msgstr "Eng yaxshi ofitsiantlar"
+
+msgid "Completed"
+msgstr "Yakunlangan"
+
+msgid "No waiter stats."
+msgstr "Ofitsiantlar statistikasi yo'q."
+
+msgid "Top Menu Items"
+msgstr "Eng ko'p sotilgan taomlar"
+
+msgid "No sales yet."
+msgstr "Hozircha savdolar yo'q."
+
+msgid "Order Status Health"
+msgstr "Buyurtmalar holati salomatligi"
+
+msgid "Count"
+msgstr "Soni"
+
+msgid "Manage Staff"
+msgstr "Xodimlarni boshqarish"
+
+msgid "Role-based team directory."
+msgstr "Rollar bo'yicha jamoa ro'yxati."
+
+msgid "Add Staff"
+msgstr "Xodim qo'shish"
+
+msgid "Waiters"
+msgstr "Ofitsiantlar"
+
+msgid "Chefs"
+msgstr "Oshpazlar"
+
+msgid "Cashiers"
+msgstr "Kassirlar"
+
+msgid "Managers"
+msgstr "Menejerlar"
+
+msgid "No waiters."
+msgstr "Ofitsiantlar yo'q."
+
+msgid "No chefs."
+msgstr "Oshpazlar yo'q."
+
+msgid "No cashiers."
+msgstr "Kassirlar yo'q."
+
+msgid "No managers."
+msgstr "Menejerlar yo'q."

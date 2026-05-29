@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n restaurant_tags %}
+{% block content %}
+<div class="site-card p-4">
+  <h2 class="page-title mb-3">
+    {% if user|has_group:"Customer" and not user.is_superuser %}
+    {% translate "Place Your Order" %}
+    {% else %}
+    {% translate "Create Order" %}
+    {% endif %}
+  </h2>
+  {% if user|has_group:"Customer" and not user.is_superuser %}
+  <p class="muted">Select a table or your reservation, then choose the first menu item for the order.</p>
+  {% endif %}
+  <form method="post" class="row g-3">
+    {% csrf_token %}
+    <div class="col-md-6">{{ order_form.as_p }}</div>
+    <div class="col-md-6">{{ item_form.as_p }}</div>
+    <div class="col-12"><button type="submit" class="btn btn-dark">
+      {% if user|has_group:"Customer" and not user.is_superuser %}
+      {% translate "Create My Order" %}
+      {% else %}
+      {% translate "Create Order" %}
+      {% endif %}
+    </button></div>
+  </form>
+</div>
+{% endblock %}

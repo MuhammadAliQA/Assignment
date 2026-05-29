@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="hero p-4 p-md-5 mb-4">
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <h2 class="page-title text-white">{% translate "Restaurant Command Center" %}</h2>
+      <p class="mb-0" style="color: rgba(236,253,245,.9)">{% translate "Monitor operations, drive kitchen speed, and keep service quality high." %}</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+      <a class="btn btn-light" href="{% url 'restaurant:manager_report' %}">{% translate "Open Analytics" %}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-lg"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Reservations" %}</p><div class="stat-value">{{ reservation_count }}</div></div></div>
+  <div class="col-sm-6 col-lg"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Active Orders" %}</p><div class="stat-value">{{ active_orders }}</div></div></div>
+  <div class="col-sm-6 col-lg"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Available Tables" %}</p><div class="stat-value">{{ available_tables }}</div></div></div>
+  <div class="col-sm-6 col-lg"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Unpaid Bills" %}</p><div class="stat-value">{{ unpaid_bills }}</div></div></div>
+  <div class="col-sm-6 col-lg"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Menu Items" %}</p><div class="stat-value">{{ menu_count }}</div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="site-card p-4 h-100">
+      <p class="section-title">{% translate "Quick Actions" %}</p>
+      <p class="muted">{% translate "Use these shortcuts during peak hours." %}</p>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a class="btn btn-dark" href="{% url 'restaurant:order_create' %}">{% translate "Create Order" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:reservation_create' %}">{% translate "New Reservation" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:kitchen_queue' %}">{% translate "Kitchen Queue" %}</a>
+        <a class="btn btn-outline-dark" href="{% url 'restaurant:manager_report' %}">{% translate "Reports" %}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="site-card p-4 h-100">
+      <p class="section-title">{% translate "Menu Mix" %}</p>
+      <p class="muted">{% translate "Current item distribution by category." %}</p>
+      <table class="table table-sm mb-0">
+        <tbody>
+          {% for row in menu_breakdown %}
+          <tr><td class="text-capitalize">{{ row.category|cut:'_' }}</td><td class="text-end fw-bold">{{ row.count }}</td></tr>
+          {% empty %}
+          <tr><td colspan="2" class="muted">{% translate "No menu data" %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

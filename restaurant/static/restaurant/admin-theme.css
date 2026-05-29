@@ -1,0 +1,60 @@
+:root {
+  --bp-ink: #122620;
+  --bp-teal: #0f766e;
+  --bp-teal-2: #14b8a6;
+  --bp-sand: #f2ede3;
+  --bp-amber: #b45309;
+  --bp-border: #d8d8d8;
+}
+
+html[data-theme="light"], :root {
+  --primary: var(--bp-teal);
+  --secondary: #0b3b36;
+  --accent: var(--bp-teal-2);
+  --primary-fg: #ffffff;
+  --header-color: #ffffff;
+  --header-branding-color: #ffffff;
+  --header-bg: linear-gradient(90deg, #0b3b36 0%, #0f766e 55%, #115e59 100%);
+  --header-link-color: #ccfbf1;
+  --breadcrumbs-bg: #e8f5f3;
+  --breadcrumbs-link-fg: #115e59;
+  --link-fg: #0f766e;
+  --link-hover-color: #0a4c47;
+  --body-fg: var(--bp-ink);
+  --body-bg: #f7f6f2;
+  --hairline-color: var(--bp-border);
+  --border-color: var(--bp-border);
+}
+
+#header {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+}
+
+.module caption,
+.inline-group h2 {
+  background: #134e4a;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background: var(--bp-teal);
+  border-radius: 10px;
+  border: 0;
+  padding: 10px 14px;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+  background: var(--bp-amber);
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover {
+  background: #0a4c47;
+}
+
+#content-related .module, .module, .inline-group {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dashboard .module table th a {
+  font-weight: 700;
+}

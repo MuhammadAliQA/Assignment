@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h2 class="page-title mb-4">{% translate "Kitchen Queue" %}</h2>
+<div class="d-flex justify-content-end mb-3">
+  <form method="post" action="{% url 'restaurant:undo_last_kitchen_action' %}">
+    {% csrf_token %}
+    <button class="btn btn-outline-dark" type="submit">{% translate "Undo Last Action" %}</button>
+  </form>
+</div>
+<div class="site-card p-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>{% translate "Order" %}</th>
+          <th>{% translate "Table" %}</th>
+          <th>{% translate "Status" %}</th>
+          <th>{% translate "Action" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for o in queue %}
+        <tr>
+          <td>#{{ o.id }}</td>
+          <td>{{ o.table.table_number }}</td>
+          <td><span class="pill {% if o.status == 'ready' %}pill-ready{% elif o.status == 'cancelled' %}pill-cancel{% else %}pill-wip{% endif %}">{{ o.get_status_display }}</span></td>
+          <td>
+            <form method="post" action="{% url 'restaurant:update_order_status' o.id %}" class="d-flex gap-2">{% csrf_token %}
+              <select class="form-select" name="status">{% for value,label in o.STATUS_CHOICES %}<option value="{{ value }}" {% if o.status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+              <button class="btn btn-dark btn-sm" type="submit">{% translate "Save" %}</button>
+            </form>
+          </td>
+        </tr>
+        {% empty %}<tr><td colspan="4" class="text-center py-4 muted">{% translate "Kitchen queue is empty." %}</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

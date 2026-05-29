@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div>
+    <h2 class="page-title">{% translate "Tables" %}</h2>
+    <p class="muted mb-0">{% translate "Real-time table floor status." %}</p>
+  </div>
+  <a href="{% url 'restaurant:table_create' %}" class="btn btn-dark">{% translate "Add Table" %}</a>
+</div>
+<div class="row g-3">
+{% for t in tables %}
+  <div class="col-md-3">
+    <div class="site-card p-3">
+      <div class="d-flex justify-content-between">
+        <h5 class="mb-0">{% translate "Table" %} {{ t.table_number }}</h5>
+        <span class="pill {% if t.status == 'available' %}pill-ready{% elif t.status == 'occupied' %}pill-wip{% else %}pill-cancel{% endif %}">{{ t.get_status_display }}</span>
+      </div>
+      <p class="muted mb-0 mt-2">{% translate "Seats" %}: {{ t.seats }}</p>
+    </div>
+  </div>
+{% empty %}
+  <div class="col-12"><div class="site-card p-4 text-center muted">{% translate "No tables yet." %}</div></div>
+{% endfor %}
+</div>
+{% endblock %}

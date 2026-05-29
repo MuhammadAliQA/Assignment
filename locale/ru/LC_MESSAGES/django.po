@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BitePlate SRMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 15:00+0000\n"
+"PO-Revision-Date: 2026-05-29 15:00+0000\n"
+"Last-Translator: Antigravity\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Reservations"
+msgstr "Бронирования"
+
+msgid "Tables"
+msgstr "Столы"
+
+msgid "Orders"
+msgstr "Заказы"
+
+msgid "Kitchen"
+msgstr "Кухня"
+
+msgid "Billing"
+msgstr "Расчеты"
+
+msgid "History"
+msgstr "История"
+
+msgid "Reports"
+msgstr "Отчеты"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Welcome Back"
+msgstr "С возвращением"
+
+msgid "Sign in to continue managing orders, kitchen queue, and reports."
+msgstr "Войдите, чтобы продолжить управление заказами, очередью на кухне и отчетами."
+
+msgid "No account?"
+msgstr "Нет аккаунта?"
+
+msgid "Create one"
+msgstr "Создайте его"
+
+msgid "Guest Access"
+msgstr "Гостевой доступ"
+
+msgid "Registered customers can browse menu, make reservations, and track service flow."
+msgstr "Зарегистрированные клиенты могут просматривать меню, бронировать столики и отслеживать обслуживание."
+
+msgid "Create Account"
+msgstr "Создать аккаунт"
+
+msgid "Register as a customer to place reservations and use BitePlate services."
+msgstr "Зарегистрируйтесь как клиент, чтобы бронировать столики и пользоваться услугами BitePlate."
+
+msgid "Already registered?"
+msgstr "Уже зарегистрированы?"
+
+msgid "Restaurant Command Center"
+msgstr "Центр управления рестораном"
+
+msgid "Monitor operations, drive kitchen speed, and keep service quality high."
+msgstr "Контролируйте работу, повышайте скорость кухни и поддерживайте высокое качество обслуживания."
+
+msgid "Open Analytics"
+msgstr "Открыть аналитику"
+
+msgid "Active Orders"
+msgstr "Активные заказы"
+
+msgid "Available Tables"
+msgstr "Свободные столы"
+
+msgid "Unpaid Bills"
+msgstr "Неоплаченные счета"
+
+msgid "Menu Items"
+msgstr "Блюда в меню"
+
+msgid "Quick Actions"
+msgstr "Быстрые действия"
+
+msgid "Use these shortcuts during peak hours."
+msgstr "Используйте эти ярлыки в часы пик."
+
+msgid "Create Order"
+msgstr "Создать заказ"
+
+msgid "New Reservation"
+msgstr "Новое бронирование"
+
+msgid "Kitchen Queue"
+msgstr "Очередь кухни"
+
+msgid "Menu Mix"
+msgstr "Состав меню"
+
+msgid "Current item distribution by category."
+msgstr "Текущее распределение блюд по категориям."
+
+msgid "No menu data"
+msgstr "Нет данных о меню"
+
+msgid "Menu Management"
+msgstr "Управление меню"
+
+msgid "Track active and inactive dishes and prices."
+msgstr "Отслеживайте активные и неактивные блюда и цены."
+
+msgid "Add Menu Item"
+msgstr "Добавить блюдо"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Active"
+msgstr "Активно"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "No menu items yet."
+msgstr "В меню пока нет блюд."
+
+msgid "Track bookings and table assignments."
+msgstr "Отслеживайте бронирования и распределение столов."
+
+msgid "Customer"
+msgstr "Клиент"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Guests"
+msgstr "Гости"
+
+msgid "Table"
+msgstr "Стол"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "No reservations yet."
+msgstr "Бронирований пока нет."
+
+msgid "Real-time table floor status."
+msgstr "Статус столов в реальном времени."
+
+msgid "Add Table"
+msgstr "Добавить стол"
+
+msgid "Seats"
+msgstr "Места"
+
+msgid "No tables yet."
+msgstr "Столов пока нет."
+
+msgid "Track every active table and order lifecycle in one list."
+msgstr "Отслеживайте каждый активный стол и жизненный цикл заказа в одном списке."
+
+msgid "New Order"
+msgstr "Новый заказ"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Total"
+msgstr "Итого"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "No orders yet."
+msgstr "Заказов пока нет."
+
+msgid "Undo Last Action"
+msgstr "Отменить последнее действие"
+
+msgid "Order"
+msgstr "Заказ"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Kitchen queue is empty."
+msgstr "Очередь кухни пуста."
+
+msgid "Bill"
+msgstr "Счет"
+
+msgid "No bills generated."
+msgstr "Счета еще не выставлены."
+
+msgid "Item"
+msgstr "Блюдо"
+
+msgid "Qty"
+msgstr "Кол-во"
+
+msgid "Unit"
+msgstr "Цена за ед."
+
+msgid "Subtotal"
+msgstr "Подытог"
+
+msgid "No line items."
+msgstr "Нет позиций."
+
+msgid "Billing Controls"
+msgstr "Управление счетами"
+
+msgid "Auto discount"
+msgstr "Авто-скидка"
+
+msgid "Preview total"
+msgstr "Предварительный итог"
+
+msgid "Update Bill"
+msgstr "Обновить счет"
+
+msgid "Payment Check"
+msgstr "Платежный чек"
+
+msgid "Generate printable check with tax and tip."
+msgstr "Создать чек для печати с налогами и чаевыми."
+
+msgid "Open Check"
+msgstr "Открыть чек"
+
+msgid "Print"
+msgstr "Печать"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "Tax"
+msgstr "Налог"
+
+msgid "Tip"
+msgstr "Чаевые"
+
+msgid "Grand Total"
+msgstr "Общий итог"
+
+msgid "Tip amount"
+msgstr "Сумма чаевых"
+
+msgid "Recalculate"
+msgstr "Пересчитать"
+
+msgid "Order History Log"
+msgstr "Журнал истории заказов"
+
+msgid "No completed orders in history."
+msgstr "В истории нет выполненных заказов."
+
+msgid "Manager Reports"
+msgstr "Отчеты менеджера"
+
+msgid "Daily finance insight with trend, staff performance, and order health."
+msgstr "Ежедневная финансовая аналитика, тренды, эффективность персонала и состояние заказов."
+
+msgid "Report Date"
+msgstr "Дата отчета"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Export CSV"
+msgstr "Экспорт в CSV"
+
+msgid "Paid Bills"
+msgstr "Оплаченные счета"
+
+msgid "Gross Sales"
+msgstr "Валовые продажи"
+
+msgid "Net Sales"
+msgstr "Чистые продажи"
+
+msgid "Avg Ticket"
+msgstr "Средний чек"
+
+msgid "7-Day Gross Trend"
+msgstr "7-дневный тренд продаж"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Gross"
+msgstr "Выручка"
+
+msgid "Top Waiters"
+msgstr "Лучшие официанты"
+
+msgid "Completed"
+msgstr "Выполнено"
+
+msgid "No waiter stats."
+msgstr "Нет статистики по официантам."
+
+msgid "Top Menu Items"
+msgstr "Популярные блюда"
+
+msgid "No sales yet."
+msgstr "Продаж пока нет."
+
+msgid "Order Status Health"
+msgstr "Состояние заказов"
+
+msgid "Count"
+msgstr "Количество"
+
+msgid "Manage Staff"
+msgstr "Управление персоналом"
+
+msgid "Role-based team directory."
+msgstr "Список сотрудников по ролям."
+
+msgid "Add Staff"
+msgstr "Добавить сотрудника"
+
+msgid "Waiters"
+msgstr "Официанты"
+
+msgid "Chefs"
+msgstr "Повара"
+
+msgid "Cashiers"
+msgstr "Кассиры"
+
+msgid "Managers"
+msgstr "Менеджеры"
+
+msgid "No waiters."
+msgstr "Нет официантов."
+
+msgid "No chefs."
+msgstr "Нет поваров."
+
+msgid "No cashiers."
+msgstr "Нет кассиров."
+
+msgid "No managers."
+msgstr "Нет менеджеров."

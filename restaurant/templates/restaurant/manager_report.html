@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div>
+    <h2 class="page-title">{% translate "Manager Reports" %}</h2>
+    <p class="muted mb-0">{% translate "Daily finance insight with trend, staff performance, and order health." %}</p>
+  </div>
+</div>
+<div class="site-card p-3 p-md-4 mb-3">
+  <form method="get" class="row g-2 align-items-end">
+    <div class="col-md-3">
+      <label class="form-label">{% translate "Report Date" %}</label>
+      <input type="date" name="date" class="form-control" value="{{ report_date|date:'Y-m-d' }}">
+    </div>
+    <div class="col-md-2"><button class="btn btn-dark w-100" type="submit">{% translate "Apply" %}</button></div>
+    <div class="col-md-3"><a class="btn btn-outline-dark w-100" href="{% url 'restaurant:manager_report_csv' %}?date={{ report_date|date:'Y-m-d' }}">{% translate "Export CSV" %}</a></div>
+  </form>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Paid Bills" %}</p><div class="stat-value">{{ total_paid_bills }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Gross Sales" %}</p><div class="stat-value">{{ today_sales }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Net Sales" %}</p><div class="stat-value">{{ net_sales }}</div></div></div>
+  <div class="col-sm-6 col-lg-3"><div class="site-card stat-card p-3"><p class="muted small mb-1">{% translate "Avg Ticket" %}</p><div class="stat-value">{{ avg_ticket }}</div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="site-card p-3 p-md-4 h-100">
+      <p class="section-title">{% translate "7-Day Gross Trend" %}</p>
+      <div class="table-responsive">
+        <table class="table table-modern mb-0">
+          <thead><tr><th>{% translate "Date" %}</th><th class="text-end">{% translate "Gross" %}</th></tr></thead>
+          <tbody>{% for day in sales_trend %}<tr><td>{{ day.day }}</td><td class="text-end fw-bold">{{ day.value }}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="site-card p-3 p-md-4 h-100">
+      <p class="section-title">{% translate "Top Waiters" %}</p>
+      <table class="table table-sm mb-0"><thead><tr><th>{% translate "Name" %}</th><th class="text-end">{% translate "Completed" %}</th></tr></thead><tbody>{% for w in top_waiters %}<tr><td>{{ w.waiter__name }}</td><td class="text-end fw-bold">{{ w.completed_orders }}</td></tr>{% empty %}<tr><td colspan="2" class="muted">{% translate "No waiter stats." %}</td></tr>{% endfor %}</tbody></table>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="site-card p-3 p-md-4 h-100">
+      <p class="section-title">{% translate "Top Menu Items" %}</p>
+      <table class="table table-sm mb-0"><thead><tr><th>{% translate "Item" %}</th><th class="text-end">{% translate "Qty" %}</th><th class="text-end">{% translate "Orders" %}</th></tr></thead><tbody>{% for item in top_items %}<tr><td>{{ item.menu_item__name }}</td><td class="text-end">{{ item.quantity_sold }}</td><td class="text-end">{{ item.order_count }}</td></tr>{% empty %}<tr><td colspan="3" class="muted">{% translate "No sales yet." %}</td></tr>{% endfor %}</tbody></table>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="site-card p-3 p-md-4 h-100">
+      <p class="section-title">{% translate "Order Status Health" %}</p>
+      <table class="table table-sm mb-0"><thead><tr><th>{% translate "Status" %}</th><th class="text-end">{% translate "Count" %}</th></tr></thead><tbody>{% for row in order_status_summary %}<tr><td>{{ row.label }}</td><td class="text-end">{{ row.count }}</td></tr>{% empty %}<tr><td colspan="2" class="muted">{% translate "No orders yet." %}</td></tr>{% endfor %}</tbody></table>
+    </div>
+  </div>
+</div>
+{% endblock %}

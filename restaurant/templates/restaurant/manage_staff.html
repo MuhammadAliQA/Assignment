@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <div><h2 class="page-title">{% translate "Manage Staff" %}</h2><p class="muted mb-0">{% translate "Role-based team directory." %}</p></div>
+  <a href="{% url 'restaurant:staff_create' %}" class="btn btn-dark">{% translate "Add Staff" %}</a>
+</div>
+<div class="row g-3">
+  <div class="col-md-3"><div class="site-card p-3"><h5>{% translate "Waiters" %}</h5>{% for x in waiters %}<p class="mb-2">{{ x.name }} <span class="muted">{{ x.phone }}</span><br><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:staff_edit' 'waiter' x.id %}">{% translate "Edit" %}</a> <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:staff_delete' 'waiter' x.id %}">{% translate "Delete" %}</a></p>{% empty %}<p class="muted mb-0">{% translate "No waiters." %}</p>{% endfor %}</div></div>
+  <div class="col-md-3"><div class="site-card p-3"><h5>{% translate "Chefs" %}</h5>{% for x in chefs %}<p class="mb-2">{{ x.name }} <span class="muted">{{ x.phone }}</span><br><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:staff_edit' 'chef' x.id %}">{% translate "Edit" %}</a> <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:staff_delete' 'chef' x.id %}">{% translate "Delete" %}</a></p>{% empty %}<p class="muted mb-0">{% translate "No chefs." %}</p>{% endfor %}</div></div>
+  <div class="col-md-3"><div class="site-card p-3"><h5>{% translate "Cashiers" %}</h5>{% for x in cashiers %}<p class="mb-2">{{ x.name }} <span class="muted">{{ x.phone }}</span><br><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:staff_edit' 'cashier' x.id %}">{% translate "Edit" %}</a> <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:staff_delete' 'cashier' x.id %}">{% translate "Delete" %}</a></p>{% empty %}<p class="muted mb-0">{% translate "No cashiers." %}</p>{% endfor %}</div></div>
+  <div class="col-md-3"><div class="site-card p-3"><h5>{% translate "Managers" %}</h5>{% for x in managers %}<p class="mb-2">{{ x.name }} <span class="muted">{{ x.phone }}</span><br><a class="btn btn-sm btn-outline-dark" href="{% url 'restaurant:staff_edit' 'manager' x.id %}">{% translate "Edit" %}</a> <a class="btn btn-sm btn-outline-danger" href="{% url 'restaurant:staff_delete' 'manager' x.id %}">{% translate "Delete" %}</a></p>{% empty %}<p class="muted mb-0">{% translate "No managers." %}</p>{% endfor %}</div></div>
+</div>
+{% endblock %}
